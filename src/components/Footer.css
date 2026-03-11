@@ -1,0 +1,347 @@
+.footer-wrapper {
+     padding: 1.5rem;
+     background-color: var(--color-bg);
+}
+
+.footer-new {
+     background-color: var(--color-black);
+     border-radius: 2rem;
+     padding: 1rem;
+     color: white;
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+     max-width: 1400px;
+     margin: 0 auto;
+}
+
+.footer-top-section,
+.footer-map-section {
+     background-color: #121214;
+     border: 1px solid rgba(255, 255, 255, 0.05);
+     border-radius: 1.5rem;
+}
+
+.footer-top-section {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 4rem;
+}
+
+.footer-cta-left {
+     max-width: 500px;
+}
+
+.contact-label {
+     color: var(--color-primary);
+     font-size: 0.9rem;
+     font-weight: 500;
+     margin-bottom: 1rem;
+}
+
+.cta-headline {
+     font-family: var(--font-heading);
+     font-size: 4rem;
+     font-weight: 800;
+     line-height: 1.1;
+     margin-bottom: 1.5rem;
+     letter-spacing: -0.02em;
+}
+
+.cta-description {
+     color: rgba(255, 255, 255, 0.7);
+     font-size: 1.05rem;
+     line-height: 1.6;
+     margin-bottom: 2.5rem;
+}
+
+.start-project-btn {
+     display: inline-flex;
+     align-items: center;
+     gap: 0.6rem;
+     background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+     color: white;
+     padding: 0.8rem 1.8rem;
+     border-radius: 100px;
+     font-weight: 600;
+     font-size: 0.9rem;
+     border: 1px solid rgba(255, 255, 255, 0.1);
+     box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 4px 6px rgba(0, 0, 0, 0.2);
+     transition: all var(--transition-normal);
+     letter-spacing: 0.05em;
+}
+
+.start-project-btn:hover {
+     background: linear-gradient(180deg, #333 0%, #222 100%);
+     border-color: rgba(255, 255, 255, 0.2);
+     transform: translateY(-2px);
+}
+
+.btn-icon-svg {
+     width: 16px;
+     height: 16px;
+     margin-bottom: 2px;
+}
+
+.footer-cta-right {
+     display: flex;
+     justify-content: flex-end;
+}
+
+.agency-info-card {
+     background-color: #1a1a1c;
+     border: 1px solid rgba(255, 255, 255, 0.05);
+     border-radius: 1.25rem;
+     padding: 3rem 4rem;
+     text-align: center;
+     min-width: 420px;
+}
+
+.agency-info-card h3 {
+     font-family: var(--font-heading);
+     font-size: 1.8rem;
+     font-weight: 700;
+     margin-bottom: 0.5rem;
+}
+
+.agency-info-card p {
+     color: rgba(255, 255, 255, 0.6);
+     font-size: 1rem;
+     margin-bottom: 2rem;
+}
+
+.availability-badge {
+     display: inline-flex;
+     align-items: center;
+     gap: 0.5rem;
+     background-color: rgba(3, 191, 181, 0.1);
+     color: var(--color-primary);
+     padding: 0.6rem 1.2rem;
+     border-radius: 100px;
+     font-size: 0.9rem;
+     font-weight: 500;
+     border: 1px solid rgba(3, 191, 181, 0.2);
+}
+
+.green-dot {
+     width: 8px;
+     height: 8px;
+     background-color: var(--color-primary);
+     border-radius: 50%;
+     box-shadow: 0 0 8px var(--color-primary);
+}
+
+.footer-map-section {
+     padding: 2.5rem;
+}
+
+.map-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     margin-bottom: 1.5rem;
+}
+
+.location-label {
+     color: var(--color-primary);
+     font-size: 0.9rem;
+     font-weight: 500;
+     margin-bottom: 0.3rem;
+}
+
+.address-text {
+     color: rgba(255, 255, 255, 0.8);
+     font-size: 0.95rem;
+}
+
+.open-maps-link {
+     color: rgba(255, 255, 255, 0.6);
+     font-size: 0.85rem;
+     text-decoration: none;
+}
+
+.open-maps-link:hover {
+     text-decoration: underline;
+     text-underline-offset: 4px;
+     color: white;
+}
+
+.map-container {
+     width: 100%;
+     height: 250px;
+     border-radius: 1rem;
+     overflow: hidden;
+     border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom-bar {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 1.5rem 2.5rem;
+     padding-bottom: 1rem;
+}
+
+.bottom-left {
+     display: flex;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 1.2rem;
+     font-size: 0.85rem;
+     color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-logo {
+     font-family: var(--font-heading);
+     font-size: 1.4rem;
+     font-weight: 800;
+     color: white;
+     letter-spacing: -0.05em;
+     margin-right: 1.5rem;
+}
+
+.copyright,
+.dot-separator {
+     color: rgba(255, 255, 255, 0.4);
+}
+
+.bottom-left a {
+     color: rgba(255, 255, 255, 0.5);
+     transition: color 0.2s;
+}
+
+.bottom-left a:hover {
+     color: white;
+}
+
+.bottom-right {
+     display: flex;
+     align-items: center;
+     gap: 3rem;
+}
+
+.footer-nav {
+     display: flex;
+     gap: 1.5rem;
+     font-size: 0.9rem;
+}
+
+.footer-nav a {
+     color: rgba(255, 255, 255, 0.7);
+     font-weight: 500;
+     transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+     color: white;
+}
+
+.footer-socials {
+     display: flex;
+     gap: 1rem;
+}
+
+.footer-socials a {
+     color: rgba(255, 255, 255, 0.5);
+     font-size: 1.2rem;
+     transition: color 0.2s;
+     display: flex;
+     align-items: center;
+}
+
+.footer-socials a:hover {
+     color: white;
+}
+
+@media (max-width: 1024px) {
+     .footer-top-section {
+          flex-direction: column;
+          padding: 3rem;
+          gap: 3rem;
+          text-align: center;
+     }
+
+     .footer-cta-left {
+          margin: 0 auto;
+     }
+
+     .footer-cta-right {
+          justify-content: center;
+          width: 100%;
+     }
+
+     .agency-info-card {
+          width: 100%;
+          min-width: unset;
+     }
+
+     .footer-bottom-bar {
+          flex-direction: column;
+          gap: 2rem;
+          align-items: center;
+     }
+
+     .bottom-right {
+          flex-direction: column;
+          gap: 1.5rem;
+     }
+}
+
+@media (max-width: 768px) {
+     .footer-new {
+          padding: 1rem;
+          border-radius: 1.5rem;
+     }
+
+     .cta-headline {
+          font-size: 2.8rem;
+     }
+
+     .footer-top-section {
+          padding: 2rem 1.5rem;
+     }
+
+     .agency-info-card {
+          padding: 2rem 1rem;
+     }
+
+     .footer-map-section {
+          padding: 1.5rem;
+     }
+
+     .map-header {
+          flex-direction: column;
+          gap: 1rem;
+          align-items: flex-start;
+     }
+
+     .bottom-left {
+          justify-content: center;
+     }
+}
+
+@media (max-width: 480px) {
+     .cta-headline {
+          font-size: 2.2rem;
+     }
+
+     .map-container {
+          height: 200px;
+     }
+
+     .bottom-left {
+          flex-direction: column;
+          gap: 0.5rem;
+          align-items: center;
+     }
+
+     .dot-separator {
+          display: none;
+     }
+
+     .footer-logo {
+          margin-right: 0;
+          margin-bottom: 0.5rem;
+     }
+}

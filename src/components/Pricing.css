@@ -1,0 +1,543 @@
+.pricing {
+     background-color: #f7f9fa;
+     /* slightly grey outer background */
+     padding: 4rem 1rem;
+     display: flex;
+     justify-content: center;
+}
+
+.pricing-wrapper {
+     background-color: #ffffff;
+     border-radius: 40px;
+     max-width: 1200px;
+     width: 100%;
+     padding: 4rem;
+     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+     border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.pricing-header-top {
+     display: flex;
+     flex-direction: column;
+     gap: 2.5rem;
+     margin-bottom: 2rem;
+     border-bottom: 1px solid #f0f0f0;
+     padding-bottom: 2.5rem;
+}
+
+.pricing-title {
+     font-family: var(--font-heading);
+     font-size: 3.5rem;
+     font-weight: 800;
+     letter-spacing: -2px;
+     color: var(--color-black);
+     display: flex;
+     align-items: baseline;
+     gap: 1rem;
+}
+
+.pricing-subtitle {
+     font-size: 1.1rem;
+     color: #6b7280;
+     font-weight: 400;
+     letter-spacing: normal;
+     font-family: var(--font-body);
+}
+
+.pricing-tabs {
+     display: flex;
+     gap: 1rem;
+}
+
+.tab-btn {
+     display: inline-flex;
+     align-items: center;
+     gap: 0.5rem;
+     padding: 0.8rem 1.5rem;
+     border-radius: 4px;
+     /* Square styling instead of pill */
+     font-size: 0.95rem;
+     font-weight: 600;
+     transition: all 0.2s;
+     border: 1px solid transparent;
+     cursor: pointer;
+}
+
+.tab-btn.active {
+     background-color: transparent;
+     color: #03BFB5;
+     /* Green text */
+     border-color: #03BFB5;
+     /* Green border as in latest screenshot */
+     border-width: 2px;
+     /* Adding slight thickness as requested by image implicitly */
+     padding: 0.75rem 1.45rem;
+     /* Adjust padding slightly to account for thicker border */
+}
+
+.tab-btn.inactive {
+     background-color: transparent;
+     color: #6b7280;
+     border-color: #e5e7eb;
+}
+
+.tab-btn.inactive:hover {
+     background-color: #f9fafb;
+}
+
+/* Steps Box */
+.pricing-steps-box {
+     background-color: #f9fafb;
+     border-radius: 12px;
+     padding: 1.5rem 2.5rem;
+     display: flex;
+     align-items: center;
+     gap: 3rem;
+     margin-bottom: 3.5rem;
+     border: 1px solid #f0f0f0;
+}
+
+.step-item {
+     display: flex;
+     align-items: center;
+     gap: 1.5rem;
+     flex: 1;
+}
+
+.step-number {
+     width: 32px;
+     height: 32px;
+     border-radius: 5px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: white;
+     font-weight: 700;
+     font-size: 0.85rem;
+     flex-shrink: 0;
+}
+
+.step-number.black {
+     background-color: var(--color-black);
+}
+
+.step-number.green {
+     background-color: #03BFB5;
+}
+
+.step-text strong {
+     display: block;
+     font-size: 0.95rem;
+     font-weight: 700;
+     color: var(--color-black);
+     margin-bottom: 0.25rem;
+}
+
+.step-text p {
+     font-size: 0.85rem;
+     color: #6b7280;
+     line-height: 1.4;
+}
+
+.step-divider {
+     width: 1px;
+     height: 40px;
+     background-color: #e5e7eb;
+}
+
+/* Grid */
+.pricing-grid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 1.5rem;
+     margin-bottom: 4rem;
+}
+
+/* CARDS */
+.price-card {
+     border-radius: 20px;
+     padding: 2.5rem 2rem;
+     display: flex;
+     flex-direction: column;
+     border: 1px solid #f3f4f6;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+     position: relative;
+     transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.price-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card-inner {
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+}
+
+.card-top-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     margin-bottom: 1rem;
+}
+
+.plan-name {
+     font-family: var(--font-heading);
+     font-size: 2rem;
+     font-weight: 500;
+     letter-spacing: -1px;
+}
+
+.plan-badge {
+     font-size: 0.65rem;
+     font-weight: 800;
+     padding: 0.35rem 0.6rem;
+     border-radius: 20px;
+     text-transform: uppercase;
+     letter-spacing: 0.05em;
+}
+
+.badge-green {
+     background-color: #03BFB5;
+     color: white;
+}
+
+.badge-blue {
+     background-color: #2563eb;
+     color: white;
+}
+
+.badge-gold {
+     background-color: #f59e0b;
+     color: #000;
+}
+
+.plan-desc {
+     font-size: 0.9rem;
+     line-height: 1.5;
+     color: #6b7280;
+     margin-bottom: 2rem;
+     min-height: 60px;
+}
+
+.price-label {
+     font-size: 0.65rem;
+     font-weight: 700;
+     color: #9ca3af;
+     text-transform: uppercase;
+     letter-spacing: 0.05em;
+     margin-bottom: 0.5rem;
+     display: block;
+}
+
+.price-values {
+     display: flex;
+     align-items: baseline;
+     gap: 0.5rem;
+}
+
+.current-price {
+     font-weight: 600;
+     font-size: 2.5rem;
+     letter-spacing: -1px;
+     font-family: var(--font-heading);
+}
+
+.old-price {
+     font-size: 1.25rem;
+     color: #9ca3af;
+     text-decoration: line-through;
+     font-weight: 500;
+}
+
+.price-divider {
+     display: flex;
+     align-items: center;
+     margin: 1.5rem 0;
+     color: #9ca3af;
+     font-size: 0.75rem;
+}
+
+.price-divider::before,
+.price-divider::after {
+     content: '';
+     flex: 1;
+     height: 1px;
+     background-color: #f3f4f6;
+}
+
+.price-divider span {
+     padding: 0 1rem;
+}
+
+.current-price-monthly {
+     font-weight: 600;
+     font-size: 1.8rem;
+     letter-spacing: -1px;
+     font-family: var(--font-heading);
+}
+
+.period-suffix {
+     font-size: 0.9rem;
+     color: #6b7280;
+}
+
+.monthly-desc {
+     font-size: 0.75rem;
+     color: #9ca3af;
+     margin-top: 0.5rem;
+     margin-bottom: 2rem;
+}
+
+.plan-features {
+     list-style: none;
+     display: flex;
+     flex-direction: column;
+     gap: 0.75rem;
+     margin-bottom: 2rem;
+}
+
+.plan-features li {
+     display: flex;
+     align-items: flex-start;
+     gap: 0.6rem;
+     font-size: 0.85rem;
+     color: #4b5563;
+}
+
+.feature-check {
+     font-size: 1rem;
+     margin-top: 2px;
+     flex-shrink: 0;
+}
+
+/* Buttons */
+.price-btn {
+     width: 100%;
+     padding: 1rem;
+     border-radius: 12px;
+     font-weight: 600;
+     font-size: 0.9rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 0.5rem;
+     transition: opacity 0.2s, transform 0.2s;
+     border: none;
+     cursor: pointer;
+}
+
+.price-btn:hover {
+     opacity: 0.9;
+     transform: translateY(-2px);
+}
+
+.btn-green {
+     background-color: #03BFB5;
+     color: white;
+}
+
+.btn-blue {
+     background-color: #2563eb;
+     color: white;
+}
+
+.btn-dark {
+     background-color: #111827;
+     color: white;
+}
+
+.btn-white {
+     background-color: #ffffff;
+     color: #111827;
+}
+
+.btn-gold {
+     background-color: #f59e0b;
+     color: #000;
+}
+
+/* THEMES */
+.light {
+     background-color: #ffffff;
+}
+
+.light .plan-name {
+     color: #111827;
+}
+
+.light .current-price,
+.light .current-price-monthly {
+     color: #111827;
+}
+
+.green-theme {
+     border: 2px solid transparent;
+}
+
+/* Default is light so no harsh border needed unless hovered? Actually in design the first card has slight green tint or just white with green elements */
+.green-theme .current-price-monthly {
+     color: #03BFB5;
+}
+
+.green-theme .feature-check {
+     color: #03BFB5;
+}
+
+.blue-theme {
+     background-color: #f8fbff;
+     border-color: #e0f2fe;
+}
+
+.blue-theme .current-price-monthly {
+     color: #2563eb;
+}
+
+.blue-theme .feature-check {
+     color: #2563eb;
+}
+
+.standard-theme .current-price-monthly {
+     color: #03BFB5;
+}
+
+/* matching screenshot color if any */
+.corporate-theme .current-price-monthly {
+     color: #03BFB5;
+}
+
+.dark {
+     background-color: #0b0f19;
+     /* very dark blue/black */
+     color: #fff;
+     border-color: #1f2937;
+}
+
+.dark .plan-name,
+.dark .current-price,
+.dark .current-price-monthly {
+     color: #fff;
+}
+
+.dark .plan-desc {
+     color: #9ca3af;
+}
+
+.dark .price-label {
+     color: #6b7280;
+}
+
+.dark .period-suffix {
+     color: #9ca3af;
+}
+
+.dark .old-price {
+     color: #6b7280;
+}
+
+.dark .monthly-desc {
+     color: #6b7280;
+}
+
+.dark .price-divider::before,
+.dark .price-divider::after {
+     background-color: #1f2937;
+}
+
+.dark .price-divider {
+     color: #4b5563;
+}
+
+.enterprise-theme .current-price-monthly {
+     color: #03BFB5;
+}
+
+.platinum-theme {
+     background: linear-gradient(145deg, #1f1a10 0%, #3d2f14 100%);
+     border-color: #524018;
+}
+
+.platinum-theme .plan-name {
+     color: #facc15;
+}
+
+.platinum-theme .current-price,
+.platinum-theme .current-price-monthly {
+     color: #facc15;
+}
+
+/* Footer area inside pricing */
+.pricing-footer {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 1.5rem;
+     border-top: 1px solid #f0f0f0;
+     padding-top: 2rem;
+}
+
+.footer-text {
+     font-size: 0.85rem;
+     color: #6b7280;
+     font-weight: 500;
+}
+
+.how-it-works-btn {
+     background-color: #f3f4f6;
+     color: #111827;
+     padding: 0.5rem 1rem;
+     border-radius: 20px;
+     font-size: 0.85rem;
+     font-weight: 600;
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     border: none;
+     cursor: pointer;
+     transition: background-color 0.2s;
+}
+
+.how-it-works-btn:hover {
+     background-color: #e5e7eb;
+}
+
+@media (max-width: 1024px) {
+     .pricing-grid {
+          grid-template-columns: repeat(2, 1fr);
+     }
+}
+
+@media (max-width: 768px) {
+     .pricing-wrapper {
+          padding: 2rem 1rem;
+     }
+
+     .pricing-grid {
+          grid-template-columns: 1fr;
+     }
+
+     .pricing-steps-box {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.5rem;
+     }
+
+     .step-divider {
+          width: 100%;
+          height: 1px;
+     }
+
+     .pricing-title {
+          font-size: 2.5rem;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+     }
+
+     .pricing-footer {
+          flex-direction: column;
+          text-align: center;
+     }
+}
