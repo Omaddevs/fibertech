@@ -59,7 +59,6 @@ const Header = () => {
     { label: t('header.nav.services'), id: 'expertise' },
     { label: t('header.nav.portfolio'), id: 'portfolio' },
     { label: t('header.nav.pricing'), id: 'pricing' },
-    { label: t('header.nav.about'), id: 'about' },
     { label: t('header.nav.faq'), id: 'faq' },
     { label: t('header.nav.contact'), id: 'contact' },
   ];

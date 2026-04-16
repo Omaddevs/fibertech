@@ -6,7 +6,6 @@ import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Expertise from './components/Expertise';
-import About from './components/About';
 
 import Footer from './components/Footer';
 import FloatingWidgets from './components/FloatingWidgets';
@@ -26,7 +25,6 @@ function App() {
           <Testimonials />
           <FAQ />
           <Expertise />
-          <About />
         </main>
         <Footer />
       </div>
