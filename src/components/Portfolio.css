@@ -259,4 +259,8 @@
   .portfolio-filters::-webkit-scrollbar {
     display: none;
   }
+
+  .portfolio-filters .filter-btn:first-child {
+    display: none;
+  }
 }
