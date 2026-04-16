@@ -1,5 +1,7 @@
-import React from 'react';
-import { FiLinkedin, FiFacebook, FiTwitter, FiInstagram } from 'react-icons/fi';
+import React, { useState } from 'react';
+import { FiLinkedin, FiFacebook, FiInstagram, FiPhone, FiMail, FiMapPin } from 'react-icons/fi';
+import { FaTelegramPlane, FaMapMarkerAlt } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
 import './Footer.css';
 
 const SparkleIcon = () => (
@@ -10,26 +12,89 @@ const SparkleIcon = () => (
 );
 
 const Footer = () => {
+     const { t } = useLanguage();
+     const [formData, setFormData] = useState({ name: '', phone: '' });
+     const [isSubmitting, setIsSubmitting] = useState(false);
+     const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+
+     const handleChange = (event) => {
+          const { name, value } = event.target;
+          setFormData((current) => ({ ...current, [name]: value }));
+     };
+
+     const handleSubmit = async (event) => {
+          event.preventDefault();
+          setIsSubmitting(true);
+          setSubmitStatus({ type: '', message: '' });
+
+          try {
+               const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                         'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+               });
+
+               const responseBody = await response.json().catch(() => ({}));
+
+               if (!response.ok) {
+                    throw new Error(responseBody.error || 'Request failed');
+               }
+
+               setFormData({ name: '', phone: '' });
+               setSubmitStatus({ type: 'success', message: t('footer.success') });
+          } catch (error) {
+               setSubmitStatus({ type: 'error', message: error.message || t('footer.error') });
+          } finally {
+               setIsSubmitting(false);
+          }
+     };
+
      return (
           <div className="footer-wrapper padding-container">
                <footer className="footer-new" id="contact">
                     <div className="footer-top-section animate-fade-in-up">
                          <div className="footer-cta-left">
-                              <p className="contact-label">Bog'lanish</p>
-                              <h2 className="cta-headline">Loyihangizni boshlashga<br />tayyormisiz?</h2>
+                              <p className="contact-label">{t('footer.contactLabel')}</p>
+                              <h2 className="cta-headline">{t('footer.title').split('\n').map((line) => <React.Fragment key={line}>{line}<br /></React.Fragment>)}</h2>
                               <p className="cta-description">
-                                   Keling, birgalikda boshlaymiz. Menga so'rov yuboring va 12 soat ichida javob oling.
+                                   {t('footer.subtitle')}
                               </p>
-                              <a href="#contact" className="start-project-btn">
-                                   <SparkleIcon /> LOYIHANI BOSHLASH
-                              </a>
+                              <form className="footer-contact-form" onSubmit={handleSubmit}>
+                                   <div className="form-group">
+                                        <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder={t('footer.namePlaceholder')} required className="footer-input" />
+                                   </div>
+                                   <div className="form-group">
+                                        <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder={t('footer.phonePlaceholder')} required className="footer-input" />
+                                   </div>
+                                   <button type="submit" className="start-project-btn submit-btn">
+                                        <SparkleIcon /> {isSubmitting ? t('footer.sending') : t('common.submit')}
+                                   </button>
+                                   {submitStatus.message && <p className={`form-status ${submitStatus.type}`}>{submitStatus.message}</p>}
+                              </form>
                          </div>
                          <div className="footer-cta-right">
                               <div className="agency-info-card">
-                                   <h3>Flexy.agency</h3>
-                                   <p>Veb-dizayn va Dasturiy ta'minot</p>
+                                   <h3>FiberTech.agency</h3>
+                                   <p>{t('footer.agencyText')}</p>
                                    <div className="availability-badge">
-                                        <span className="green-dot"></span> Yangi loyihalar uchun ochiq
+                                        <span className="green-dot"></span> {t('footer.availability')}
+                                   </div>
+
+                                   <div className="agency-contact-details">
+                                        <a href="tel:+998877353636" className="agency-contact-link">
+                                             <FiPhone /> +998 87 735 36 36
+                                        </a>
+                                        <a href="mailto:info@fibertech.uz" className="agency-contact-link">
+                                             <FiMail /> info@fibertech.uz
+                                        </a>
+                                   </div>
+
+                                   <div className="agency-social-links">
+                                        <a href="https://t.me/fibertech_uz" target="_blank" rel="noreferrer" className="agency-social-icon telegram"><FaTelegramPlane /></a>
+                                        <a href="https://www.instagram.com/fibertech.uz?igsh=MXE1dGgxYW5ldWc2MA==" target="_blank" rel="noreferrer" className="agency-social-icon instagram"><FiInstagram /></a>
+                                        <a href="#" className="agency-social-icon facebook"><FiFacebook /></a>
                                    </div>
                               </div>
                          </div>
@@ -38,16 +103,16 @@ const Footer = () => {
                     <div className="footer-map-section animate-fade-in-up delay-100">
                          <div className="map-header">
                               <div className="map-location-info">
-                                   <p className="location-label">Manzil: Toshkent</p>
-                                   <p className="address-text">Toshkent shahri, O'zbekiston, 100000</p>
+                                        <p className="location-label">{t('footer.locationLabel')}</p>
+                                        <p className="address-text">{t('footer.address')}</p>
                               </div>
-                              <a href="https://maps.google.com/?q=Tashkent" target="_blank" rel="noreferrer" className="open-maps-link">
-                                   Google Xaritada ochish
+                              <a href="https://maps.google.com/?q=International+Agriculture+University,+Tashkent,+Uzbekistan" target="_blank" rel="noreferrer" className="open-maps-link">
+                                   {t('footer.openMap')}
                               </a>
                          </div>
-                         <div className="map-container">
+                         <div className="map-container" style={{ position: 'relative' }}>
                               <iframe
-                                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95904.09344498522!2d69.17637845!3d41.28251255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b0cc379e9c3%3A0xa5a9323b4aa5cb98!2sTashkent%2C%20Uzbekistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                                   src="https://maps.google.com/maps?q=International%20Agriculture%20University,%20Tashkent,%20Uzbekistan&t=&z=17&ie=UTF8&iwloc=&output=embed"
                                    width="100%"
                                    height="100%"
                                    style={{ border: 0 }}
@@ -56,30 +121,50 @@ const Footer = () => {
                                    referrerPolicy="no-referrer-when-downgrade"
                                    title="Tashkent Map"
                               ></iframe>
+                              <div style={{
+                                  position: 'absolute',
+                                  top: '50%',
+                                  left: '50%',
+                                  transform: 'translate(-50%, -100%)',
+                                  pointerEvents: 'none',
+                                  display: 'flex',
+                                  flexDirection: 'column',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  zIndex: 10
+                              }}>
+                                  <FaMapMarkerAlt size={56} color="#03BFB5" style={{ filter: 'drop-shadow(0px 4px 6px rgba(0,0,0,0.4))' }} />
+                                  <div style={{ 
+                                      background: '#03BFB5', 
+                                      color: 'white', 
+                                      padding: '4px 14px', 
+                                      borderRadius: '20px', 
+                                      fontSize: '0.9rem',
+                                      fontWeight: '600',
+                                      marginTop: '-2px',
+                                      boxShadow: '0 4px 12px rgba(3, 191, 181, 0.4)',
+                                      letterSpacing: '0.02em',
+                                      border: '2px solid white'
+                                  }}>
+                                      {t('common.office')}
+                                  </div>
+                              </div>
                          </div>
                     </div>
 
                     <div className="footer-bottom-bar animate-fade-in-up delay-200">
                          <div className="bottom-left">
-                              <span className="footer-logo">Flexy</span>
-                              <span className="copyright">&copy; 2025</span>
-                              <span className="dot-separator">•</span>
-                              <a href="#">Maxfiylik siyosati</a>
-                              <a href="#">Foydalanish shartlari</a>
-                              <a href="#">Cookie sozlamalari</a>
+                              <div className="footer-logo" style={{ fontSize: '24px', fontWeight: '700', fontFamily: 'var(--font-heading)', marginRight: '16px' }}>
+                                   <span style={{ color: 'white' }}>Fiber</span><span style={{ color: '#03BFB5' }}>Tech</span>
+                              </div>
+                              <span className="copyright">&copy; {t('footer.copyright')}</span>
                          </div>
                          <div className="bottom-right">
-                              <div className="footer-nav">
-                                   <a href="#services">Xizmatlar</a>
-                                   <a href="#about">O'zim haqimda</a>
-                                   <a href="#portfolio">Portfolio</a>
-                                   <a href="#contact">Bog'lanish</a>
-                              </div>
                               <div className="footer-socials">
                                    <a href="#"><FiLinkedin /></a>
                                    <a href="#"><FiFacebook /></a>
-                                   <a href="#"><FiTwitter /></a>
-                                   <a href="#"><FiInstagram /></a>
+                                   <a href="https://t.me/fibertech_uz" target="_blank" rel="noreferrer"><FaTelegramPlane /></a>
+                                   <a href="https://www.instagram.com/fibertech.uz?igsh=MXE1dGgxYW5ldWc2MA==" target="_blank" rel="noreferrer"><FiInstagram /></a>
                               </div>
                          </div>
                     </div>

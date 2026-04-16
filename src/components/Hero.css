@@ -57,6 +57,7 @@
      max-width: 800px;
      font-weight: 500;
      /* slightly thicker */
+     text-wrap: balance;
 }
 
 .hero-actions {
@@ -121,24 +122,26 @@
      display: flex;
      align-items: center;
      justify-content: center;
-     gap: 3rem;
+     gap: 2rem;
      margin-bottom: 5rem;
-     /* space for logos */
+     padding: 2rem 0;
 }
 
 .stat-block {
      display: flex;
      align-items: center;
-     gap: 0.75rem;
+     gap: 1rem;
      text-align: left;
+     min-width: 180px;
 }
 
 .stat-number {
      font-family: var(--font-heading);
-     font-size: 2.2rem;
+     font-size: 3rem;
      font-weight: 800;
      color: var(--color-black);
-     letter-spacing: -1px;
+     letter-spacing: -2px;
+     line-height: 1;
 }
 
 .score-green {
@@ -147,16 +150,16 @@
 }
 
 .stat-text {
-     font-size: 0.75rem;
-     color: #9ca3af;
-     line-height: 1.3;
+     font-size: 0.8rem;
+     color: #6b7280;
+     line-height: 1.4;
      font-weight: 500;
 }
 
 .stat-divider {
      width: 1px;
-     height: 40px;
-     background-color: #eaeaea;
+     height: 50px;
+     background-color: #f3f4f6;
 }
 
 /* Smooth Infinite Logo Carousel */
@@ -202,36 +205,7 @@
      flex-shrink: 0;
 }
 
-.react-icon {
-     font-size: 1.8rem;
-}
 
-.vercel-icon {
-     font-size: 1.5rem;
-}
-
-.cloud-icon {
-     font-size: 2.5rem;
-     margin-top: -0.2rem;
-}
-
-.partner-text {
-     font-size: 1.25rem;
-     font-family: var(--font-heading);
-     font-weight: 800;
-     color: var(--color-black);
-     letter-spacing: -0.05em;
-     flex-shrink: 0;
-}
-
-.partner-text.italic {
-     font-style: italic;
-}
-
-.partner-text.plesk {
-     font-size: 1.1rem;
-     font-weight: 600;
-}
 
 @media (max-width: 768px) {
      .hero {
@@ -240,8 +214,31 @@
      }
 
      .hero-stats {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          gap: 1rem;
+          overflow-x: auto;
+          padding-bottom: 0.5rem;
+          -webkit-overflow-scrolling: touch;
+          justify-content: flex-start;
+     }
+
+     .stat-block {
+          display: inline-flex;
           flex-direction: column;
-          gap: 1.5rem;
+          flex-shrink: 0;
+          min-width: 90px;
+          justify-content: center;
+          text-align: center;
+     }
+
+     .stat-number {
+          font-size: 2rem;
+     }
+
+     .stat-text {
+          font-size: 0.7rem;
      }
 
      .stat-divider {
@@ -251,4 +248,23 @@
      .hero-title {
           font-size: clamp(2.5rem, 8vw, 4rem);
      }
+
+     .relative-text {
+          white-space: normal;
+     }
+
+     .hero-subtitle {
+          font-size: 1rem;
+          margin-bottom: 2.2rem;
+     }
+
+     .hero-actions {
+          margin-bottom: 3rem;
+     }
+
+     .btn-glow {
+          width: 100%;
+          justify-content: center;
+          padding: 0.95rem 1.4rem;
+      }
 }

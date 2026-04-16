@@ -1,32 +1,12 @@
 import React, { useState } from 'react';
 import { FiChevronDown, FiMapPin, FiPenTool } from 'react-icons/fi';
+import { useLanguage } from '../context/LanguageContext';
 import './FAQ.css';
-
-const faqs = [
-     {
-          question: "Veb-sayt yaratish qancha vaqt oladi?",
-          answer: "Loyiha murakkabligiga qarab odatda 2 dan 4 haftagacha vaqt ketadi. Dastlabki bosqichda aniq muddat belgilanadi."
-     },
-     {
-          question: "Qanday platformalardan foydalanasiz?",
-          answer: "Biz asosan React, Webflow, va Shopify platformalaridan foydalanamiz, chunki ular zamonaviy va tezkor."
-     },
-     {
-          question: "SEO xizmatlari nimani o'z ichiga oladi?",
-          answer: "SEO xizmatiga kalit so'zlarni tahlil qilish, sayt tezligini oshirish, on-page va technical SEO optimizatsiyasi kiradi."
-     },
-     {
-          question: "To'lov jarayoni qanday amalga oshiriladi?",
-          answer: "To'lov ikki qismga bo'linadi: loyiha boshlanishida 50% va ish to'liq topshirilgandan so'ng qolgan 50% to'lanadi."
-     },
-     {
-          question: "Sayt ishga tushgach yordam berasizmi?",
-          answer: "Albatta, biz barcha mijozlarimizga kamida 1 oylik bepul texnik qo'llab-quvvatlash xizmatini taqdim etamiz."
-     }
-];
 
 const FAQ = () => {
      const [openIndex, setOpenIndex] = useState(0);
+     const { t } = useLanguage();
+     const faqs = t('faq.questions');
 
      const toggleFAQ = (index) => {
           setOpenIndex(openIndex === index ? null : index);
@@ -37,12 +17,12 @@ const FAQ = () => {
                <div className="container">
                     <div className="faq-wrapper animate-fade-in-up">
                          <div className="faq-header-new">
-                              <h2 className="faq-title-big">FAQ.</h2>
-                              <p className="faq-subtitle">Murakkab atamalarsiz tushunarli tilda. Eng muhim javoblar.</p>
+                             <h2 className="faq-title-big">{t('faq.title')}</h2>
+                             <p className="faq-subtitle">{t('faq.subtitle')}</p>
                          </div>
 
                          <div className="faq-main-content">
-                              <h3 className="faq-section-title">Bilish muhim</h3>
+                             <h3 className="faq-section-title">{t('faq.sectionTitle')}</h3>
                               <div className="faq-list">
                                    {faqs.map((faq, index) => (
                                         <div
@@ -68,10 +48,10 @@ const FAQ = () => {
                                         <div className="icon-circle light-green">
                                              <FiMapPin className="card-icon-small" />
                                         </div>
-                                        <h4>O'zbekistonda mahalliy</h4>
+                                        <h4>{t('faq.cards.localTitle')}</h4>
                                    </div>
                                    <p className="card-text">
-                                        Shaxsiy aloqa o'rnini hech narsa bosa olmaydi. Nomsiz call-markazlar emas, loyihangiz uchun bevosita mas'ul shaxslar.
+                                        {t('faq.cards.localText')}
                                    </p>
                               </div>
                               <div className="faq-footer-card dark">
@@ -79,12 +59,12 @@ const FAQ = () => {
                                         <div className="icon-circle dark-gray">
                                              <FiPenTool className="card-icon-small white-icon" />
                                         </div>
-                                        <h4>Individual yondashuv?</h4>
+                                        <h4>{t('faq.cards.customTitle')}</h4>
                                    </div>
                                    <p className="card-text">
-                                        Internet-do'konlar yoki murakkab biznes tizimlari uchun individual taklif ishlab chiqamiz.
+                                        {t('faq.cards.customText')}
                                    </p>
-                                   <a href="#contact" className="faq-link">SO'ROV QOLDIRISH &rarr;</a>
+                                   <a href="#contact" className="faq-link">{t('faq.cards.customLink')} &rarr;</a>
                               </div>
                          </div>
                     </div>

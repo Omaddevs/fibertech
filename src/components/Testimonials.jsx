@@ -1,55 +1,63 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import { useLanguage } from '../context/LanguageContext';
 import './Testimonials.css';
 
 const reviews = [
      {
           id: 1,
-          text: "Ular bizning veb-saytimizni to'liq yangilashdi. Natijada konversiyalar 40% ga oshdi. Juda professional jamoa, hammaga tavsiya qilaman!",
-          name: "Sardor Karimov",
-          username: "@sardork",
-          avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-          platform: "Google"
+          text: "Asrorbekga katta rahmat! Saytimizni noldan yaratib, har bir detalga alohida e'tibor qaratishdi. Mijozlarimiz saytdan foydalanish juda qulay ekanligini aytishmoqda. Haqiqiy o'z ishining ustasi!",
+          name: "Azizbek Tursunov",
+          username: "@azizb_t",
+          avatar: "https://ui-avatars.com/api/?name=Azizbek+Tursunov&background=03BFB5&color=fff",
+          platform: "Trustpilot"
      },
      {
           id: 2,
-          text: "Webflow va SEO bo'yicha haqiqiy mutaxassislar. Bizning saytimiz Google qidiruvlarida 1-sahifaga chiqdi.",
-          name: "Malika Aliyeva",
-          username: "@malikadesign",
-          avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+          text: "Biznesim uchun Telegram bot va tizim qildirgandim, kutganimdan ham a'lo darajada chiqdi. Hamma savollarga erinmasdan javob berganlari va ishni vaqtidan ertaroq bitirib berganlari uchun tashakkur!",
+          name: "Nilufar Qosiyeva",
+          username: "@nilufar_biznes",
+          avatar: "https://ui-avatars.com/api/?name=Nilufar+Qosiyeva&background=111827&color=fff",
           platform: "Trustpilot"
      },
      {
           id: 3,
-          text: "Ajoyib dizayn va tezkor ishlash! Bizning startapimiz uchun mukammal landing page yaratib berishdi.",
-          name: "Jasur Rahimov",
-          username: "@jasdev",
-          avatar: "https://randomuser.me/api/portraits/men/67.jpg",
-          platform: "Google"
+          text: "Dizayn juda zamonaviy, tezlik ajoyib. Har safar hamkorlik qilganimizda sifatni his qilamiz. O'zbekistonda bunaqa mas'uliyatli va kreativ IT mutaxassisni topish qiyin.",
+          name: "Javohir Ergashev",
+          username: "@javohirez",
+          avatar: "https://ui-avatars.com/api/?name=Javohir+Ergashev&background=facc15&color=000",
+          platform: "Trustpilot"
      }
 ];
 
 const Testimonials = () => {
+     const { t } = useLanguage();
+     const localizedReviews = t('testimonials.reviews');
+     const reviewsWithText = localizedReviews.map((review) => ({
+          ...review,
+          avatar: reviews.find((item) => item.id === review.id)?.avatar
+     }));
+
      return (
           <section className="testimonials section" id="reviews">
                <div className="container">
                     <div className="testimonials-header animate-fade-in-up">
                          <div className="trust-badge">
-                              <FcGoogle size={20} />
-                              <span className="badge-text">Google Reviews</span>
+                              <div className="trustpilot-icon-small" style={{ width: '20px', height: '20px', backgroundColor: '#03BFB5', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '3px', fontSize: '12px' }}>★</div>
+                              <span className="badge-text" style={{ marginLeft: '8px' }}>{t('testimonials.badge')}</span>
                          </div>
-                         <h2 className="section-title">Mijozlarimiz nima deydi</h2>
+                         <h2 className="section-title">{t('testimonials.title')}</h2>
                          <div className="overall-rating">
                               <div className="stars">
                                    {[...Array(5)].map((_, i) => <FaStar key={i} className="star fill" color="#fbbc04" />)}
                               </div>
-                              <span>4.9/5 (120+ sharhlar)</span>
+                              <span>{t('testimonials.overall')}</span>
                          </div>
                     </div>
 
                     <div className="testimonials-grid">
-                         {reviews.map((review, index) => (
+                         {reviewsWithText.map((review, index) => (
                               <div
                                    key={review.id}
                                    className="review-card animate-fade-in-up"

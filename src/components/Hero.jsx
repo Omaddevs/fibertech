@@ -1,18 +1,22 @@
 import React from 'react';
 import { BsStars } from 'react-icons/bs';
-import { SiVercel, SiFigma, SiReact, SiGooglecloud, SiOpenai, SiFramer } from 'react-icons/si';
-import { PiFramerLogoFill } from 'react-icons/pi';
+import { SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs, SiPython, SiPostgresql, SiMongodb, SiFigma } from 'react-icons/si';
+import { Counter } from './Statistics';
+import { useLanguage } from '../context/LanguageContext';
 import './Hero.css';
 
 const Hero = () => {
+     const { t } = useLanguage();
+     const heroStats = t('hero.stats');
+
      return (
           <section className="hero section" id="hero">
                <div className="container hero-container">
 
                     <h1 className="hero-title animate-fade-in-up">
-                         Biznesingiz uchun<br />
+                         {t('hero.titleBefore')}<br />
                          <span className="relative-text">
-                              IT yechimlar
+                              {t('hero.titleHighlight')}
                               <svg className="hero-underline" viewBox="0 0 600 25" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                                    <path d="M5 20 Q 150 15, 300 18 T 595 20" stroke="#03BFB5" strokeWidth="8" strokeLinecap="round" />
                               </svg>
@@ -20,31 +24,31 @@ const Hero = () => {
                     </h1>
 
                     <p className="hero-subtitle animate-fade-in-up delay-100">
-                         Biz biznesingiz uchun zamonaviy web saytlar, CRM tizimlar va digital xizmatlar yaratib, raqamli rivojlanishingizga yordam beramiz.
+                         {t('hero.subtitle')}
                     </p>
 
                     <div className="hero-actions animate-fade-in-up delay-200">
                          <button className="btn btn-glow">
-                              <BsStars className="sparkle-icon" /> Loyihani boshlash
+                              <BsStars className="sparkle-icon" /> {t('hero.cta')}
                          </button>
                     </div>
 
                     <div className="hero-stats animate-fade-in-up delay-300">
                          <div className="stat-block">
-                              <span className="stat-number">92+</span>
-                              <span className="stat-text">Projekte<br />abgeschlossen</span>
+                              <span className="stat-number"><Counter end={10} duration={2000} suffix="+" /></span>
+                              <span className="stat-text">{heroStats.completed.split('\n').map((line) => <React.Fragment key={line}>{line}<br /></React.Fragment>)}</span>
                          </div>
                          <div className="stat-divider"></div>
 
                          <div className="stat-block">
-                              <span className="stat-number">100</span>
-                              <span className="stat-text">PageSpeed<br />Score</span>
+                              <span className="stat-number"><Counter end={25} duration={2000} suffix="K+" /></span>
+                              <span className="stat-text">{heroStats.users.split('\n').map((line) => <React.Fragment key={line}>{line}<br /></React.Fragment>)}</span>
                          </div>
                          <div className="stat-divider"></div>
 
                          <div className="stat-block">
-                              <span className="stat-number score-green">4.9</span>
-                              <span className="stat-text">Google<br />Bewertung</span>
+                              <span className="stat-number score-green"><Counter end={2} duration={2000} /></span>
+                              <span className="stat-text">{heroStats.mvp.split('\n').map((line) => <React.Fragment key={line}>{line}<br /></React.Fragment>)}</span>
                          </div>
                     </div>
 
@@ -52,24 +56,26 @@ const Hero = () => {
                     <div className="partner-carousel animate-fade-in-up delay-300">
                          <div className="partner-track">
                               {/* Set 1 */}
-                              <SiOpenai className="partner-icon" />
-                              <h3 className="partner-text">AI</h3>
-                              <h3 className="partner-text italic">xl</h3>
-                              <PiFramerLogoFill className="partner-icon" />
-                              <SiReact className="partner-icon react-icon" />
-                              <SiVercel className="partner-icon vercel-icon" />
-                              <SiGooglecloud className="partner-icon cloud-icon" />
-                              <h3 className="partner-text plesk">plesk</h3>
+                              <SiJavascript className="partner-icon" />
+                              <SiTypescript className="partner-icon" />
+                              <SiReact className="partner-icon" />
+                              <SiNextdotjs className="partner-icon" />
+                              <SiNodedotjs className="partner-icon" />
+                              <SiPython className="partner-icon" />
+                              <SiPostgresql className="partner-icon" />
+                              <SiMongodb className="partner-icon" />
+                              <SiFigma className="partner-icon" />
 
                               {/* Set 2 - Duplicated for seamless loop */}
-                              <SiOpenai className="partner-icon" />
-                              <h3 className="partner-text">AI</h3>
-                              <h3 className="partner-text italic">xl</h3>
-                              <PiFramerLogoFill className="partner-icon" />
-                              <SiReact className="partner-icon react-icon" />
-                              <SiVercel className="partner-icon vercel-icon" />
-                              <SiGooglecloud className="partner-icon cloud-icon" />
-                              <h3 className="partner-text plesk">plesk</h3>
+                              <SiJavascript className="partner-icon" />
+                              <SiTypescript className="partner-icon" />
+                              <SiReact className="partner-icon" />
+                              <SiNextdotjs className="partner-icon" />
+                              <SiNodedotjs className="partner-icon" />
+                              <SiPython className="partner-icon" />
+                              <SiPostgresql className="partner-icon" />
+                              <SiMongodb className="partner-icon" />
+                              <SiFigma className="partner-icon" />
                          </div>
                     </div>
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Statistics.css';
 
-const Counter = ({ end, decimals = 0, duration = 2000, suffix = '', prefix = '' }) => {
+export const Counter = ({ end, decimals = 0, duration = 2000, suffix = '', prefix = '' }) => {
      const [count, setCount] = useState(0);
      const countRef = useRef(null);
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiCheck, FiArrowRight, FiGlobe, FiTarget } from 'react-icons/fi';
 import { FaRobot } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
 import './Pricing.css';
 
 const websitePlans = [
@@ -11,9 +12,9 @@ const websitePlans = [
           badge: 'ARZON',
           badgeClass: 'badge-green',
           theme: 'light green-theme',
-          oneTimePrice: '600',
-          oldOneTime: '1.200',
-          monthlyPrice: '49',
+          oneTimePrice: '150',
+          oldOneTime: '300',
+          monthlyPrice: '15',
           monthlyDesc: '12 oylik muddat, xosting bilan',
           features: [
                '1 Sahifa (Landing)',
@@ -31,9 +32,9 @@ const websitePlans = [
           badge: 'MASHHUR',
           badgeClass: 'badge-blue',
           theme: 'light blue-theme',
-          oneTimePrice: '1.200',
-          oldOneTime: '2.000',
-          monthlyPrice: '89',
+          oneTimePrice: '300',
+          oldOneTime: '500',
+          monthlyPrice: '30',
           monthlyDesc: '18 oylik muddat, texnik xizmat bilan',
           features: [
                '3 ta sahifagacha',
@@ -47,55 +48,75 @@ const websitePlans = [
      },
      {
           id: 3,
-          name: 'Standard',
-          desc: 'Professional talablar uchun mukammal boshlanish. O\'rnatilgan veb-saytlar uchun ideal.',
+          name: 'Katalog Veb-sayt',
+          desc: 'Guvohnomalar va katalog uchun kengaytirilgan ko\'rinish. Kichik bizneslar uchun optimal.',
           theme: 'light standard-theme',
-          oneTimePrice: '3.000',
-          oldOneTime: '5.000',
-          monthlyPrice: '150',
+          oneTimePrice: '600',
+          oldOneTime: '1.000',
+          monthlyPrice: '50',
           monthlyDesc: '24 oylik muddat, texnik xizmat bilan',
-          features: [],
+          features: [
+               '10 ta sahifagacha',
+               'Mahsulotlar katalogi',
+               'Blog yoki yangiliklar',
+               'Tezkor yuklanish tezligi',
+          ],
           btnClass: 'btn-dark',
           btnText: 'Batafsil ko\'rish'
      },
      {
           id: 4,
-          name: 'Corporate',
-          desc: 'Dizayn va funksionallikka yuqori talablar qo\'yadigan korxonalar uchun mukammal.',
+          name: 'E-commerce (Do\'kon)',
+          desc: 'To\'liq onlayn savdo maydonchasi. Payme, Click va boshqa to\'lovlar integratsiyalangan.',
           theme: 'light corporate-theme',
-          oneTimePrice: '5.000',
-          oldOneTime: '10.000',
-          monthlyPrice: '250',
-          monthlyDesc: '24 oylik muddat, texnik xizmat bilan',
-          features: [],
+          oneTimePrice: '1.200',
+          oldOneTime: '2.000',
+          monthlyPrice: '100',
+          monthlyDesc: '24 oylik muddat, to\'liq server xizmati bilan',
+          features: [
+               'Cheksiz mahsulotlar',
+               'To\'lov tizimlari (Payme, Click)',
+               'Kengaytirilgan SEO',
+               'Telegram bot integratsiya'
+          ],
           btnClass: 'btn-dark',
           btnText: 'Batafsil ko\'rish'
      },
      {
           id: 5,
-          name: 'Enterprise',
-          desc: 'Kengaymoqchi bo\'lgan o\'rnatilgan korxonalar uchun. To\'liq yordam bilan High-End yechimlar.',
+          name: 'Premium Portal',
+          desc: 'Kengayish niyatidagi o\'rnatilgan korxonalar. CRM tizimlar bilan uzviy bog\'langan portallar.',
           theme: 'dark enterprise-theme',
-          oneTimePrice: '10.000',
-          oldOneTime: '30.000',
-          monthlyPrice: '500',
-          monthlyDesc: '24 oylik muddat, texnik xizmat bilan',
-          features: [],
+          oneTimePrice: '2.500',
+          oldOneTime: '4.000',
+          monthlyPrice: '200',
+          monthlyDesc: '24 oylik muddat, VIP administrator bilan',
+          features: [
+               'Murakkab funksional',
+               'CRM bilan integratsiya',
+               'Ko\'p tilli tizim (UZ, RU, EN)',
+               'To\'liq analitika burchagi'
+          ],
           btnClass: 'btn-white',
           btnText: 'Batafsil ko\'rish'
      },
      {
           id: 6,
-          name: 'Ultra Platinum',
-          desc: 'Maksimal o\'sish uchun All-in-One AI-tizim. Eng yuqori darajadagi Premium-xizmat.',
+          name: 'AI & ERP Tizim',
+          desc: 'Korxona uchun eng yuqori darajada avtomatlashtirilgan sun\'iy intellekt va boshqaruv tizimi.',
           badge: 'PREMIUM',
           badgeClass: 'badge-gold',
           theme: 'dark platinum-theme',
-          oneTimePrice: '40.000',
-          oldOneTime: '150.000',
-          monthlyPrice: '1.500',
-          monthlyDesc: '24 oylik muddat, VIP qo\'llab-quvvatlash bilan',
-          features: [],
+          oneTimePrice: '5.000',
+          oldOneTime: '8.000',
+          monthlyPrice: '400',
+          monthlyDesc: 'Cheksiz muddat, VIP qo\'llab-quvvatlash bilan',
+          features: [
+               'Barcha bo\'limlarni avtomatlashtirish',
+               'Sun\'iy Intellekt asistentlari',
+               'Xodimlar va moliyani boshqarish',
+               'Shaxsiy mobil ilova'
+          ],
           btnClass: 'btn-gold',
           btnText: 'Batafsil ko\'rish'
      }
@@ -109,9 +130,9 @@ const botPlans = [
           badge: 'KIRISH',
           badgeClass: 'badge-green',
           theme: 'light green-theme',
-          oneTimePrice: '300',
-          oldOneTime: '600',
-          monthlyPrice: '29',
+          oneTimePrice: '80',
+          oldOneTime: '150',
+          monthlyPrice: '10',
           monthlyDesc: '12 oylik muddat, server bilan',
           features: [
                'Menyu va tugmalar',
@@ -129,9 +150,9 @@ const botPlans = [
           badge: 'MASHHUR',
           badgeClass: 'badge-blue',
           theme: 'light blue-theme',
-          oneTimePrice: '800',
-          oldOneTime: '1.500',
-          monthlyPrice: '69',
+          oneTimePrice: '250',
+          oldOneTime: '400',
+          monthlyPrice: '25',
           monthlyDesc: '18 oylik muddat, texnik yordam',
           features: [
                'Katalog va savatcha',
@@ -149,9 +170,9 @@ const botPlans = [
           badge: 'OPTIMAL',
           badgeClass: 'badge-gold',
           theme: 'dark enterprise-theme',
-          oneTimePrice: '2.500',
-          oldOneTime: '5.000',
-          monthlyPrice: '450',
+          oneTimePrice: '500',
+          oldOneTime: '1.000',
+          monthlyPrice: '50',
           monthlyDesc: 'Doimiy yordam va kuzatuv',
           features: [
                'Murakkab savdo boti',
@@ -172,10 +193,10 @@ const targetPlans = [
           badge: 'YANGI BOzor',
           badgeClass: 'badge-green',
           theme: 'light standard-theme',
-          oneTimePrice: '400',
-          oldOneTime: '800',
-          monthlyPrice: '150',
-          monthlyDesc: 'Oylik byudjetsiz, xizmat haqi',
+          oneTimePrice: '50',
+          oldOneTime: '100',
+          monthlyPrice: '100',
+          monthlyDesc: '1 ta loyihani to\'liq boshqarish',
           features: [
                'Auditoriya tahlili',
                'Reklama bannerlari (3 ta)',
@@ -192,10 +213,10 @@ const targetPlans = [
           badge: 'MASHHUR',
           badgeClass: 'badge-blue',
           theme: 'light corporate-theme',
-          oneTimePrice: '1.000',
-          oldOneTime: '2.000',
-          monthlyPrice: '350',
-          monthlyDesc: 'Murakkab funnellar',
+          oneTimePrice: '150',
+          oldOneTime: '300',
+          monthlyPrice: '250',
+          monthlyDesc: 'Murakkab funnellar va retargeting',
           features: [
                'Pixel o\'rnatish',
                'Retargeting',
@@ -207,19 +228,19 @@ const targetPlans = [
      },
      {
           id: 16,
-          name: 'AI & SMM Kompleks',
-          desc: 'Neyrotarmoqlar yordamida har kunlik postlar va avtomatlashtirilgan marketing.',
+          name: 'SMM & Targeting Kompleks',
+          desc: 'Biznesingizning barcha ijtimoiy tarmoqlarini to\'liq yuritish va reklamani nazorat qilish.',
           badge: 'PREMIUM',
           badgeClass: 'badge-gold',
           theme: 'dark platinum-theme',
-          oneTimePrice: '3.000',
-          oldOneTime: '6.000',
-          monthlyPrice: '800',
-          monthlyDesc: '24 oylik muddat, VIP qo\'llab-quvvatlash',
+          oneTimePrice: '300',
+          oldOneTime: '500',
+          monthlyPrice: '450',
+          monthlyDesc: 'Kontent-reja, video montaj va SMM',
           features: [
-               'AI generatsiya qilingan konent',
+               'Reels va videorolik olish',
                'To\'liq hisob boshqaruvi',
-               'Influencer outreach',
+               'Sotuvlarni monitoring qilish',
                '24/7 Agent qo\'llab-quvvatlash'
           ],
           btnClass: 'btn-gold',
@@ -228,11 +249,29 @@ const targetPlans = [
 ];
 
 const Pricing = () => {
-     const [activeTab, setActiveTab] = React.useState('website');
+     const { t } = useLanguage();
+     const [activeTab, setActiveTab] = React.useState(null);
+     const localizedWebsitePlans = t('pricing.websitePlans');
+     const localizedBotPlans = t('pricing.botPlans');
+     const localizedTargetPlans = t('pricing.targetPlans');
 
-     let currentPlans = websitePlans;
-     if (activeTab === 'bot') currentPlans = botPlans;
-     if (activeTab === 'target') currentPlans = targetPlans;
+     const websitePlansWithText = React.useMemo(
+          () => websitePlans.map((plan) => ({ ...plan, ...localizedWebsitePlans.find((item) => item.id === plan.id) })),
+          [localizedWebsitePlans]
+     );
+     const botPlansWithText = React.useMemo(
+          () => botPlans.map((plan) => ({ ...plan, ...localizedBotPlans.find((item) => item.id === plan.id) })),
+          [localizedBotPlans]
+     );
+     const targetPlansWithText = React.useMemo(
+          () => targetPlans.map((plan) => ({ ...plan, ...localizedTargetPlans.find((item) => item.id === plan.id) })),
+          [localizedTargetPlans]
+     );
+
+     let currentPlans = [];
+     if (activeTab === 'website') currentPlans = websitePlansWithText;
+     if (activeTab === 'bot') currentPlans = botPlansWithText;
+     if (activeTab === 'target') currentPlans = targetPlansWithText;
 
      return (
           <section className="pricing section" id="pricing">
@@ -240,117 +279,100 @@ const Pricing = () => {
 
                     {/* Header elements */}
                     <div className="pricing-header-top">
-                         <h2 className="pricing-title">Narxlar. <span className="pricing-subtitle">Shaffof narxlar. ROI-birinchi yondashuv.</span></h2>
+                         <h2 className="pricing-title">{t('pricing.title')} <span className="pricing-subtitle">{t('pricing.subtitle')}</span></h2>
                          <div className="pricing-tabs">
                               <button
                                    className={`tab-btn ${activeTab === 'website' ? 'active' : 'inactive'}`}
                                    onClick={() => setActiveTab('website')}
                               >
-                                   <FiGlobe className="tab-icon" /> Veb-saytlar
+                                   <FiGlobe className="tab-icon" /> {t('pricing.tabs.website')}
                               </button>
                               <button
                                    className={`tab-btn ${activeTab === 'bot' ? 'active' : 'inactive'}`}
                                    onClick={() => setActiveTab('bot')}
                               >
-                                   <FaRobot className="tab-icon" /> Telegram Bot
+                                   <FaRobot className="tab-icon" /> {t('pricing.tabs.bot')}
                               </button>
                               <button
                                    className={`tab-btn ${activeTab === 'target' ? 'active' : 'inactive'}`}
                                    onClick={() => setActiveTab('target')}
                               >
-                                   <FiTarget className="tab-icon" /> Targeting
+                                   <FiTarget className="tab-icon" /> {t('pricing.tabs.target')}
                               </button>
                          </div>
                     </div>
 
-                    {/* Steps box */}
-                    <div className="pricing-steps-box animate-fade-in-up delay-100">
-                         <div className="step-item">
-                              <div className="step-number black">1</div>
-                              <div className="step-text">
-                                   <strong>Bir martalik to'lov</strong>
-                                   <p>Loyiha to'g'ridan-to'g'ri to'lanadi – siz darhol egasisiz.</p>
-                              </div>
-                         </div>
-                         <div className="step-divider"></div>
-                         <div className="step-item">
-                              <div className="step-number green">2</div>
-                              <div className="step-text">
-                                   <strong>Oylik ijaraga olish</strong>
-                                   <p>Xizmatni uzoq muddatga ijaraga oling – texnik xizmat va yangilanishlar bilan.</p>
-                              </div>
-                         </div>
-                    </div>
-
-                    {/* Cards Grid */}
-                    <div className="pricing-grid">
-                         {currentPlans.map((plan, index) => (
-                              <div
-                                   key={plan.id}
-                                   className={`price-card ${plan.theme} animate-fade-in-up`}
-                                   style={{ animationDelay: `${(index % 3) * 100}ms` }}
-                              >
-                                   <div className="card-inner">
-                                        <div className="card-top-header">
-                                             <h3 className="plan-name">{plan.name}</h3>
-                                             {plan.badge && <span className={`plan-badge ${plan.badgeClass}`}>{plan.badge}</span>}
-                                        </div>
-
-                                        <p className="plan-desc">{plan.desc}</p>
-
-                                        {/* One time price section */}
-                                        <div className="price-section block-one-time">
-                                             <span className="price-label">BIR MARTALIK TO'LOV</span>
-                                             <div className="price-values">
-                                                  <span className="current-price">{plan.oneTimePrice}$</span>
-                                                  <span className="old-price">– {plan.oldOneTime}$</span>
-                                             </div>
-                                        </div>
-
-                                        <div className="price-divider">
-                                             <span>yoki ijara</span>
-                                        </div>
-
-                                        {/* Monthly price section */}
-                                        <div className="price-section block-monthly">
-                                             <span className="price-label">OYLIK</span>
-                                             <div className="price-values">
-                                                  <span className="current-price-monthly">dan {plan.monthlyPrice}$</span>
-                                                  <span className="period-suffix"> / Oy</span>
-                                             </div>
-                                             <p className="monthly-desc">{plan.monthlyDesc}</p>
-                                        </div>
-
-                                        {/* Features list */}
-                                        {plan.features.length > 0 && (
-                                             <ul className="plan-features">
-                                                  {plan.features.map((feature, i) => (
-                                                       <li key={i}>
-                                                            <FiCheck className="feature-check" />
-                                                            <span>{feature}</span>
-                                                       </li>
-                                                  ))}
-                                             </ul>
-                                        )}
-
-                                        {/* Spacer to push button to bottom if list is empty or short */}
-                                        <div style={{ flexGrow: 1 }}></div>
-
-                                        <div className="card-btn-container">
-                                             <button className={`price-btn ${plan.btnClass}`}>
-                                                  {plan.btnText} <FiArrowRight className="btn-arrow" />
-                                             </button>
+                    {/* Content Section rendered only after selecting a tab */}
+                    {activeTab && (
+                         <>
+                              {/* Steps box */}
+                              <div className="pricing-steps-box animate-fade-in-up delay-100">
+                                   <div className="step-item">
+                                        <div className="step-number black">1</div>
+                                        <div className="step-text">
+                                             <strong>{t('pricing.steps.title')}</strong>
+                                             <p>{t('pricing.steps.text')}</p>
                                         </div>
                                    </div>
                               </div>
-                         ))}
-                    </div>
+
+                              {/* Cards Grid */}
+                              <div className="pricing-grid">
+                                   {currentPlans.map((plan, index) => (
+                                        <div
+                                             key={plan.id}
+                                             className={`price-card ${plan.theme} animate-fade-in-up`}
+                                             style={{ animationDelay: `${(index % 3) * 100}ms` }}
+                                        >
+                                             <div className="card-inner">
+                                                  <div className="card-top-header">
+                                                       <h3 className="plan-name">{plan.name}</h3>
+                                                       {plan.badge && <span className={`plan-badge ${plan.badgeClass}`}>{plan.badge}</span>}
+                                                  </div>
+
+                                                  <p className="plan-desc">{plan.desc}</p>
+
+                                                  {/* One time price section */}
+                                                  <div className="price-section block-one-time">
+                                                       <span className="price-label">{t('pricing.oneTimeLabel')}</span>
+                                                       <div className="price-values">
+                                                            <span className="current-price">{plan.oneTimePrice}$</span>
+                                                            <span className="old-price">– {plan.oldOneTime}$</span>
+                                                       </div>
+                                                  </div>
+
+                                                  {/* Features list */}
+                                                  {plan.features.length > 0 && (
+                                                       <ul className="plan-features">
+                                                            {plan.features.map((feature, i) => (
+                                                                 <li key={i}>
+                                                                      <FiCheck className="feature-check" />
+                                                                      <span>{feature}</span>
+                                                                 </li>
+                                                            ))}
+                                                       </ul>
+                                                  )}
+
+                                                  {/* Spacer to push button to bottom if list is empty or short */}
+                                                  <div style={{ flexGrow: 1 }}></div>
+
+                                                  <div className="card-btn-container">
+                                                       <button className={`price-btn ${plan.btnClass}`}>
+                                                            {plan.btnText} <FiArrowRight className="btn-arrow" />
+                                                       </button>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   ))}
+                              </div>
+                         </>
+                    )}
 
                     {/* Footer info */}
                     <div className="pricing-footer animate-fade-in-up delay-300">
-                         <p className="footer-text">Bepul dastlabki maslahat • 12 soat ichida javob kafolatlangan • Majburiyatsiz taklif</p>
+                         <p className="footer-text">{t('pricing.footerText')}</p>
                          <button className="how-it-works-btn">
-                              Men qanday ishlayman <FiArrowRight className="btn-arrow" />
+                              {t('pricing.howIWork')} <FiArrowRight className="btn-arrow" />
                          </button>
                     </div>
 

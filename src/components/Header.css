@@ -6,13 +6,13 @@
      margin: 0 auto;
      width: 90%;
      max-width: 1200px;
-     background-color: #ffffff;
+     background-color: var(--color-bg);
      border-radius: 60px;
      padding: 0.8rem 1.2rem 0.8rem 2rem;
      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
      /* Stronger floating shadow */
      z-index: 100;
-     border: 1px solid rgba(0, 0, 0, 0.02);
+     border: 1px solid var(--color-border);
      transition: all 0.3s ease;
 }
 
@@ -58,6 +58,7 @@
      align-items: center;
      gap: 0.25rem;
      transition: color 0.2s;
+     white-space: nowrap;
 }
 
 .nav-links li:hover {
@@ -84,6 +85,7 @@
      font-weight: 500;
      font-size: 0.85rem;
      transition: opacity 0.2s;
+     white-space: nowrap;
 }
 
 .btn-black:hover {
@@ -97,13 +99,13 @@
      width: 32px;
      height: 32px;
      border-radius: 50%;
-     color: #4b5563;
+     color: var(--color-text-muted);
      font-size: 1.1rem;
-     transition: background-color 0.2s;
+     transition: background-color 0.2s, color 0.2s;
 }
 
 .icon-btn:hover {
-     background-color: rgba(0, 0, 0, 0.05);
+     background-color: rgba(100, 116, 139, 0.1);
 }
 
 .lang-toggle img {
@@ -124,7 +126,7 @@
      top: calc(100% + 15px);
      right: 50%;
      transform: translateX(50%);
-     background: white;
+     background: var(--color-bg);
      border-radius: 16px;
      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
      padding: 0.5rem;
@@ -132,7 +134,7 @@
      flex-direction: column;
      gap: 0.2rem;
      z-index: 101;
-     border: 1px solid rgba(0, 0, 0, 0.05);
+     border: 1px solid var(--color-border);
      min-width: 120px;
 }
 
@@ -145,9 +147,9 @@
      transform: translateX(-50%) rotate(45deg);
      width: 12px;
      height: 12px;
-     background: white;
-     border-left: 1px solid rgba(0, 0, 0, 0.05);
-     border-top: 1px solid rgba(0, 0, 0, 0.05);
+     background: var(--color-bg);
+     border-left: 1px solid var(--color-border);
+     border-top: 1px solid var(--color-border);
 }
 
 .lang-option {
@@ -164,7 +166,7 @@
 
 .lang-option:hover,
 .lang-option.active {
-     background: rgba(0, 0, 0, 0.04);
+     background: var(--color-border);
 }
 
 .lang-option img {
@@ -185,7 +187,7 @@
      left: 0;
      width: 100%;
      height: 100%;
-     background-color: rgba(255, 255, 255, 0.98);
+     background-color: rgba(var(--color-bg-rgb, 252, 252, 252), 0.98);
      backdrop-filter: blur(10px);
      z-index: 1000;
      opacity: 0;
@@ -298,6 +300,7 @@
           padding: 0.6rem 1.2rem;
           font-size: 0.85rem;
           border-radius: 20px;
+          max-width: 190px;
      }
 
      .mobile-menu-btn {
@@ -322,5 +325,35 @@
 
      .logo {
           font-size: 1.5rem;
+     }
+}
+
+@media (max-width: 640px) {
+     .header {
+          top: 16px;
+          padding: 0.55rem 0.6rem 0.55rem 1rem;
+     }
+
+     .header-actions {
+          gap: 0.35rem;
+     }
+
+     .btn-taklif {
+          display: none;
+     }
+
+     .lang-dropdown-menu {
+          right: 0;
+          transform: none;
+     }
+
+     .lang-dropdown-menu::before {
+          left: auto;
+          right: 10px;
+          transform: rotate(45deg);
+     }
+
+     .mobile-nav-links li {
+          font-size: 1.45rem;
      }
 }

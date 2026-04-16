@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FiMoon, FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
+import { useLanguage } from '../context/LanguageContext';
 import './Header.css';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState('UZ');
+  const { language, setLanguage, t } = useLanguage();
 
   const langRef = useRef(null);
 
@@ -52,23 +53,23 @@ const Header = () => {
     }
   };
 
-  const currentFlag = languages.find(l => l.code === currentLang)?.flag;
+  const currentFlag = languages.find((l) => l.code === language)?.flag;
 
   const navItems = [
-    { label: 'Xizmatlar', id: 'expertise' },
-    { label: 'Portfolio', id: 'portfolio' },
-    { label: 'Narxlar', id: 'pricing' },
-    { label: 'Biz haqimizda', id: 'about' },
-    { label: 'FAQ', id: 'faq' },
-    { label: 'Aloqa', id: 'contact' },
+    { label: t('header.nav.services'), id: 'expertise' },
+    { label: t('header.nav.portfolio'), id: 'portfolio' },
+    { label: t('header.nav.pricing'), id: 'pricing' },
+    { label: t('header.nav.about'), id: 'about' },
+    { label: t('header.nav.faq'), id: 'faq' },
+    { label: t('header.nav.contact'), id: 'contact' },
   ];
 
   return (
     <>
       <header className={`header animate-fade-in-up ${scrolled ? 'scrolled' : ''}`}>
         <div className="header-inner">
-          <div className="logo" onClick={() => handleNavClick('hero')} style={{ cursor: 'pointer' }}>
-            Wibify
+          <div className="logo" onClick={() => handleNavClick('hero')} style={{ cursor: 'pointer', fontSize: '24px', fontWeight: '700', fontFamily: 'var(--font-heading)' }}>
+            <span style={{ color: 'var(--color-black)' }}>Fiber</span><span style={{ color: '#03BFB5' }}>Tech</span>
           </div>
 
           <nav className="desktop-nav">
@@ -83,17 +84,14 @@ const Header = () => {
 
           <div className="header-actions">
             {/* Removed desktop-only to show on all devices */}
-            <button className="btn-black btn-taklif" onClick={() => handleNavClick('contact')}>Taklif</button>
-            <button className="icon-btn theme-toggle">
-              <FiMoon />
-            </button>
+            <button className="btn-black btn-taklif" onClick={() => handleNavClick('contact')}>{t('common.startNow')}</button>
 
             <div className="lang-dropdown-container" ref={langRef}>
               <button
                 className="icon-btn lang-toggle"
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
               >
-                <img src={currentFlag} alt={currentLang} />
+                <img src={currentFlag} alt={language} />
               </button>
 
               {langDropdownOpen && (
@@ -101,9 +99,9 @@ const Header = () => {
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
-                      className={`lang-option ${currentLang === lang.code ? 'active' : ''}`}
+                      className={`lang-option ${language === lang.code ? 'active' : ''}`}
                       onClick={() => {
-                        setCurrentLang(lang.code);
+                        setLanguage(lang.code);
                         setLangDropdownOpen(false);
                       }}
                     >
@@ -126,7 +124,9 @@ const Header = () => {
       <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-menu-container">
           <div className="mobile-menu-header">
-            <div className="logo">Wibify</div>
+            <div className="logo" style={{ fontSize: '24px', fontWeight: '700', fontFamily: 'var(--font-heading)' }}>
+              <span style={{ color: 'var(--color-black)' }}>Fiber</span><span style={{ color: '#03BFB5' }}>Tech</span>
+            </div>
             <button className="icon-btn close-btn" onClick={toggleMobileMenu}>
               <FiX />
             </button>
@@ -146,7 +146,7 @@ const Header = () => {
           </nav>
           <div className="mobile-menu-footer">
             <button className="btn-black full-width" onClick={() => handleNavClick('contact')}>
-              Taklif olish
+              {t('common.getProposal')}
             </button>
           </div>
         </div>

@@ -223,6 +223,10 @@
 }
 
 @media (max-width: 768px) {
+     .expertise {
+          padding: 2rem 0;
+     }
+
      .expertise-header {
           flex-direction: column;
           align-items: flex-start;
@@ -237,10 +241,12 @@
           grid-template-columns: 1fr;
      }
 
+     .expertise-industries {
+          display: none;
+     }
+
      .expertise-footer {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 1.5rem;
+          display: none;
      }
 
      .expertise-wrapper {
