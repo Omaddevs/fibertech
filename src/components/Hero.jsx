@@ -8,6 +8,12 @@ import './Hero.css';
 const Hero = () => {
      const { t } = useLanguage();
      const heroStats = t('hero.stats');
+     const scrollToContact = () => {
+          const contactSection = document.getElementById('contact');
+          if (contactSection) {
+               contactSection.scrollIntoView({ behavior: 'smooth' });
+          }
+     };
 
      return (
           <section className="hero section" id="hero">
@@ -28,7 +34,7 @@ const Hero = () => {
                     </p>
 
                     <div className="hero-actions animate-fade-in-up delay-200">
-                         <button className="btn btn-glow">
+                         <button className="btn btn-glow" onClick={scrollToContact}>
                               <BsStars className="sparkle-icon" /> {t('hero.cta')}
                          </button>
                     </div>
